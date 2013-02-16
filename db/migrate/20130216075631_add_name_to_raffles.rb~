@@ -1,0 +1,5 @@
+class AddNameToRaffles < ActiveRecord::Migration
+  def change
+	string :name
+  end
+end

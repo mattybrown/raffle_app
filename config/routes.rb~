@@ -1,6 +1,6 @@
 RaffleApp::Application.routes.draw do
   resources :users
-  resources :raffles
+
   match '/signup',	to: 'users#new'
 
   match 'raffles',	to: 'raffles#new'
