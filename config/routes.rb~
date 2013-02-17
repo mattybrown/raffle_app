@@ -2,10 +2,10 @@ RaffleApp::Application.routes.draw do
 
   root :to => 'raffles#index'
 
-  match 'raffles/new',	to: 'raffles#new'
-  match 'raffles/draw',	to: 'raffles#draw'
-  match 'raffles/show', to: 'raffles#show'
-  match 'raffles/create',	to: 'raffles#create'
+  match '/new',	to: 'raffles#new'
+  match '/draw',	to: 'raffles#draw'
+  match '/show', to: 'raffles#show'
+  match '/create',	to: 'raffles#create'
   match 'raffles',	to: 'raffles#index'
 
   # The priority is based upon order of creation:

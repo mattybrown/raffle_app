@@ -1,9 +1,7 @@
 	<h1>Do you have the winning ticket?</h1>
-		<%= form_tag(:controller => "raffles", :action => "index") do %>
+		<%= form_tag(:controller => "raffles", :action => "index", :class => "form-vertical") do %>
 		<h3>Current raffle: <%= @last_raffle.name %></h3>
-			Ticket: <%= text_field_tag :ticket %>
-			Unique ID: <%= text_field_tag :unique_identifier %>
-			<%= submit_tag "Check ticket" %>
+			<label class="control-label">Ticket</label> <%= text_field_tag :ticket, nil, :class => 'medium' %>
+			<label class="control-label">Unique ID</label> <%= text_field_tag :unique_identifier, nil, :class => 'medium' %>
+			<div><%= submit_tag "Check ticket", :class=>"btn btn-primary btn-large" %></div>
 		<% end %>
-	<div class="notice"><%= flash[:notice] %></div>
-	<%= error_messages_for :unique_identifier %>

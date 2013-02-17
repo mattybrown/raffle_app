@@ -48,23 +48,28 @@ before_filter :authenticate, :except => :index
   def index
 	@last_raffle = Raffle.last
 	ticket = params[:ticket]
-	unique_id = params[:unique_identifier]
+	unique_id = params[:unique_identifier].to_i
 	if params[:commit]
 		if unique_id.is_a? Integer
 			@last_raffle.tickets.each do |i|
 				match = i[0].to_s
 				id = i[1].to_s		
-				if ticket == match && unique_id == id
+				if ticket == match && unique_id.to_s == id
 					flash.now[:notice] = "Congratulations, you won!"
+					render "congrats"
 					break
 				else
-					flash.now[:notice] = "Sorry, try again next time."
+					flash.now[:notice] = "Sorry, that ticket wasn't a winner. Try again next time!"
 				end
 			end
 		else
-			flash.now[:notice] = "Your unique id is invalid"
+			flash.now[:notice] = "Your unique id is invalid " + unique_id 
 		end
 	end
+  end
+
+  def winner
+	@last_raffle = Raffle.last
   end
 
 end
