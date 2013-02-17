@@ -1,18 +1,18 @@
 class RafflesController < ApplicationController
-
+before_filter :authenticate, :except => :index
   def new
 	@raffle = Raffle.new
   end
 
   def create
 	dirty_tickets = params[:number]
-	tickets = dirty_tickets.to_i
+	ticket_num = dirty_tickets.to_i
 	name = params[:name]
 	ticket_and_code = []
 
 	base_val = 1
 
-	for i in (base_val..tickets)
+	for i in (base_val..ticket_num)
 		tickets = []
 		ticket = name + i.to_s
 		code = (1..9).to_a.shuffle[0..6].join
@@ -20,7 +20,7 @@ class RafflesController < ApplicationController
 		ticket_and_code.push tickets
 	end
 
-	@raffle = Raffle.new(:tickets => ticket_and_code, :name => name)
+	@raffle = Raffle.new(:tickets => ticket_and_code, :name => name, :number => ticket_num)
 	  if @raffle.save
 	    flash[:notice] = "Raffle created"
 	  else	
@@ -31,11 +31,40 @@ class RafflesController < ApplicationController
 
   def show
   	@last_raffle = Raffle.last
-
+	@name = @last_raffle.name
   end
 
   def draw
-	ticket_array = Raffle
+	@last_raffle = Raffle.last
+	@max_range = Integer(@last_raffle.number) - 1
+	draw_range = (1..@max_range).to_a.shuffle
+	number = Integer(draw_range[0])
+	@winner = @last_raffle.tickets[number]
+	@sanitized_winner = @winner[0]
+	@last_raffle.winner = @sanitized_winner
+	@last_raffle.save
+  end
+
+  def index
+	@last_raffle = Raffle.last
+	ticket = params[:ticket]
+	unique_id = params[:unique_identifier]
+	if params[:commit]
+		if unique_id.is_a? Integer
+			@last_raffle.tickets.each do |i|
+				match = i[0].to_s
+				id = i[1].to_s		
+				if ticket == match && unique_id == id
+					flash.now[:notice] = "Congratulations, you won!"
+					break
+				else
+					flash.now[:notice] = "Sorry, try again next time."
+				end
+			end
+		else
+			flash.now[:notice] = "Your unique id is invalid"
+		end
+	end
   end
 
 end

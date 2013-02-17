@@ -1,0 +1,5 @@
+	<h1>Draw the last raffle</h1>
+		<%= form_tag(:controller => "raffles", :action => "draw") do %>
+			<%= submit_tag :draw %>
+		<% end %>
+	<div><%= @winner %> - <%= @max_range %></div>

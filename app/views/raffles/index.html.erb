@@ -1,0 +1,8 @@
+	<h1>Do you have the winning ticket?</h1>
+		<%= form_tag(:controller => "raffles", :action => "index") do %>
+		<h3>Current raffle: <%= @last_raffle.name %></h3>
+			Ticket: <%= text_field_tag :ticket %>
+			Unique ID: <%= text_field_tag :unique_identifier %>
+			<%= submit_tag "Check ticket" %>
+		<% end %>
+	<div class="notice"><%= flash[:notice] %></div>

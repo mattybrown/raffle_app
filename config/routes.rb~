@@ -1,9 +1,13 @@
 RaffleApp::Application.routes.draw do
-  resources :users
 
-  match '/signup',	to: 'users#new'
+  root :to => 'raffles#index'
 
-  match 'raffles',	to: 'raffles#new'
+  match 'raffles/new',	to: 'raffles#new'
+  match 'raffles/draw',	to: 'raffles#draw'
+  match 'raffles/show', to: 'raffles#show'
+  match 'raffles/create',	to: 'raffles#create'
+  match 'raffles',	to: 'raffles#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

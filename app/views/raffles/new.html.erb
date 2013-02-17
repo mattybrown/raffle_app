@@ -1,11 +1,14 @@
 <% @page_title = "mattybrown.net | Generate raffle" %>
 <div class="create_form">
+
 	<h1>Generate raffle</h1>
 		<%= form_tag(:controller => "raffles", :action => "create") do %>
 			Raffle name: <%= text_field_tag :name %>
 			Amount of tickets: <%= text_field_tag :number %>
 			<%= submit_tag :generate %>
 		<% end %>
+
+
 	<div class="notice"><%= flash[:notice] %></div>
 	<% if @raffle.errors.any? %>
 		<ul class="raffle_errors">
