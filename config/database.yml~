@@ -27,7 +27,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: raffleGenerator
+  database: <%=ENV['OPENSHIFT_APP_NAME']%>
   pool: 5
-  username: admin
-  password: ctUQ-lNLRvww
+  username: <%=ENV['OPENSHIFT_DB_USERNAME']%>
+  password: <%=ENV['OPENSHIFT_DB_PASSWORD']%>
