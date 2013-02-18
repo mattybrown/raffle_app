@@ -50,10 +50,6 @@ before_filter :authenticate, :except => :index
 
   def index
 	@last_raffle = Raffle.last
-	@name = @last_raffle.name
-	if @name == nil || @name == ""
-		@name = "nothing!!!"
-	end
 	ticket = params[:ticket]
 	unique_id = params[:unique_identifier].to_i
 	if params[:commit]

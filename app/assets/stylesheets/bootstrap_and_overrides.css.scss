@@ -1,6 +1,7 @@
 @import "bootstrap";
+
 body{
-	padding-top: 60px;
+	margin-top:60px;
 }
 .content{
 	text-align:center;
@@ -8,5 +9,8 @@ body{
 	h3{
 		line-height:1.3em;
 	}
+}
+.muted{
+	padding-bottom:15px;
 }
 @import "bootstrap-responsive";

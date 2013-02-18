@@ -1,6 +1,7 @@
 	<h1>Congratulations!</h1>
-		<%= form_tag(:controller => "raffles", :action => "winner", :class => "form-vertical") do %>
+		<%= form_tag(:controller => "raffles", :action => "winner") do %>
 		<h3>Your ticket, <%= @last_raffle.winner %> is the winner!</h3>
+		<p>To claim your prize, please enter your name and email address. I don't save any email addresses so you needn't worry about spam from me. If you don't receive an email with your sweet prize shortly, you should check the spam folder in case you email provide mistakenly marked my email as spam (which it totally isn't). If you still haven't got it, email me at <%= mail_to "brownprobable@gmail.com", "brownprobable@gmail.com" %></p>
 			<label class="control-label">Name</label> <%= text_field_tag :name, nil, :class => 'medium' %>
 			<label class="control-label">Email</label> <%= text_field_tag :email, nil, :class => 'medium' %>
 			<div><%= submit_tag "Claim your prize", :class=>"btn btn-primary btn-large" %></div>

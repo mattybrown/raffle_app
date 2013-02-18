@@ -50,8 +50,8 @@ before_filter :authenticate, :except => :index
 
   def index
 	@last_raffle = Raffle.last
-	@name = Raffle.last.name
-	if @name == nil || @name.name == ""
+	@name = @last_raffle.name
+	if @name == nil || @name == ""
 		@name = "nothing!!!"
 	end
 	ticket = params[:ticket]
