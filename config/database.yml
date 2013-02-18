@@ -29,5 +29,5 @@ production:
   encoding: utf8
   database: raffleGenerator
   pool: 5
-  username: admin
-  password: YxKphNxL3TpY
+  username: 
+  password: 
