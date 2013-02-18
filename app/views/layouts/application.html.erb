@@ -12,8 +12,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="wrap">
-	    <header class="navbar navbar-fixed-top">
+	    <header class="navbar navbar-inverse navbar-fixed-top">
 	      <nav class="navbar-inner">
 		<div class="container">
 		  <%= render 'layouts/navigation' %>
@@ -21,7 +20,7 @@
 	      </nav>
 	    </header>
 
-	    <div id="main" role="main" class="container clear-top">
+	    <div id="main" role="main">
 	      <div class="container">
 		<div class="content">
 		   <div class="sponsor"></div>
@@ -40,6 +39,5 @@
 		</div>
 	      </div> <!--! end of .container -->
 	    </div> <!--! end of #main -->
-	</div><!--! end of #wrap -->
   </body>
 </html>

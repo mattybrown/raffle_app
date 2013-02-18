@@ -3,8 +3,4 @@ class Raffle < ActiveRecord::Base
 
   serialize :tickets
 
-  validates :number, :numericality => { :only_integer => true }
-  validates :unique_identifier, :numericality => { :only_integer => true }
-
-  Raffle.errors[:unique_identifier]
 end

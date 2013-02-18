@@ -12,7 +12,6 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="wrap">
 	    <header class="navbar navbar-fixed-top">
 	      <nav class="navbar-inner">
 		<div class="container">
@@ -21,7 +20,7 @@
 	      </nav>
 	    </header>
 
-	    <div id="main" role="main" class="container clear-top">
+	    <div id="main" role="main">
 	      <div class="container">
 		<div class="content">
 		   <div class="sponsor"></div>
@@ -33,12 +32,12 @@
 		  </div>
 		  <footer class="navbar navbar-fixed-bottom">
 			<div class="container">
+				<hr />
 				<p class="muted">This app was built by Matt Brown. Need a website? <%= mail_to "brownprobable@gmail.com", "Email me!" %>
 			</div>
 		  </footer>
 		</div>
 	      </div> <!--! end of .container -->
 	    </div> <!--! end of #main -->
-	</div><!--! end of #wrap -->
   </body>
 </html>

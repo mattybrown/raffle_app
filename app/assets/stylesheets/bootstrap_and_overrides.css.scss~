@@ -1,8 +1,9 @@
 @import "bootstrap";
 
 body{
-	margin-top:60px;
+	padding-top:0px;
 }
+
 .content{
 	text-align:center;
 	margin:0px auto;
@@ -11,6 +12,6 @@ body{
 	}
 }
 .muted{
-	padding-bottom:10px;
+	padding-bottom:15px;
 }
 @import "bootstrap-responsive";

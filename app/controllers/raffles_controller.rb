@@ -40,12 +40,11 @@ before_filter :authenticate, :except => :index
 		@max_range = Integer(@last_raffle.number) - 1
 		draw_range = (1..@max_range).to_a.shuffle
 		number = Integer(draw_range[0])
-		@sanitized_winner = @winner[0]
+		@sanitized_winner = @last_raffle.tickets[number][0]
 		@last_raffle.winner = @sanitized_winner
 		@last_raffle.save
 	end
-	
-	@winner = Raffle.last.winner
+	@winner = @sanitized_winner
   end
 
   def index
@@ -58,11 +57,13 @@ before_filter :authenticate, :except => :index
 				match = i[0].to_s
 				id = i[1].to_s		
 				if ticket == match && unique_id.to_s == id
+					if ticket == @last_raffle.winner
 					flash.now[:notice] = "Congratulations, you won!"
 					render "congrats"
 					break
+					end
 				else
-					flash.now[:notice] = "Sorry, that ticket wasn't a winner. Try again next time!"
+					flash.now[:notice] = "Thanks for entering, but sorry, that ticket wasn't a winner. Try again next time!"
 				end
 			end
 		else
