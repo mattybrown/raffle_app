@@ -1,0 +1,12 @@
+@import "bootstrap";
+body{
+	padding-top: 60px;
+}
+.content{
+	text-align:center;
+	margin:0px auto;
+	h3{
+		line-height:1.1em;
+	}
+}
+@import "bootstrap-responsive";

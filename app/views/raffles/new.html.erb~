@@ -3,16 +3,12 @@
 
 	<h1>Generate raffle</h1>
 		<%= form_tag(:controller => "raffles", :action => "create") do %>
-			Raffle name: <%= text_field_tag :name %>
-			Amount of tickets: <%= text_field_tag :number %>
-			<%= submit_tag :generate %>
+			<label class="control-label">Raffle name</label><%= text_field_tag :name, nil, :class => "medium" %>
+			<label class="control-label">Amount of tickets</label><%= text_field_tag :number, nil, :class => "medium" %>
+			<%= submit_tag :generate, :class => "btn btn-large btn-primary" %>
 		<% end %>
 
-	<h1>Draw the last raffle</h1>
-		<%= form_tag(:controller => "raffles", :action => "draw") do %>
-			<%= submit_tag :draw %>
-		<% end %>
-	<%= @winner %>
+
 	<div class="notice"><%= flash[:notice] %></div>
 	<% if @raffle.errors.any? %>
 		<ul class="raffle_errors">

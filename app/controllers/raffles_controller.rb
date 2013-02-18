@@ -35,14 +35,17 @@ before_filter :authenticate, :except => :index
   end
 
   def draw
-	@last_raffle = Raffle.last
-	@max_range = Integer(@last_raffle.number) - 1
-	draw_range = (1..@max_range).to_a.shuffle
-	number = Integer(draw_range[0])
-	@winner = @last_raffle.tickets[number]
-	@sanitized_winner = @winner[0]
-	@last_raffle.winner = @sanitized_winner
-	@last_raffle.save
+	if params[:commit]
+		@last_raffle = Raffle.last
+		@max_range = Integer(@last_raffle.number) - 1
+		draw_range = (1..@max_range).to_a.shuffle
+		number = Integer(draw_range[0])
+		@sanitized_winner = @winner[0]
+		@last_raffle.winner = @sanitized_winner
+		@last_raffle.save
+	end
+	
+	@winner = Raffle.last.winner
   end
 
   def index

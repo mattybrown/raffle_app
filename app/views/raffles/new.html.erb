@@ -3,9 +3,9 @@
 
 	<h1>Generate raffle</h1>
 		<%= form_tag(:controller => "raffles", :action => "create") do %>
-			Raffle name: <%= text_field_tag :name %>
-			Amount of tickets: <%= text_field_tag :number %>
-			<%= submit_tag :generate %>
+			<label class="control-label">Raffle name</label><%= text_field_tag :name, nil, :class => "medium" %>
+			<label class="control-label">Amount of tickets</label><%= text_field_tag :number, nil, :class => "medium" %>
+			<div><%= submit_tag :generate, :class => "btn btn-large btn-primary" %></div>
 		<% end %>
 
 

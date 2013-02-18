@@ -1,7 +1,11 @@
-	<h1>Do you have the winning ticket?</h1>
+<% if @name != nil || @name != "" %>	
+<h1>Do you have the winning ticket?</h1>
 		<%= form_tag(:controller => "raffles", :action => "index") do %>
-		<h3>Current raffle: <%= @last_raffle.name %></h3>
+		<h3>Current raffle, <%= @last_raffle.name %>, will be drawn Monday morning at 9am</h3>
 			<label class="control-label">Ticket</label> <%= text_field_tag :ticket, nil, :class => 'medium' %>
 			<label class="control-label">Unique ID</label> <%= text_field_tag :unique_identifier, nil, :class => 'medium' %>
 			<div><%= submit_tag "Check ticket", :class=>"btn btn-primary btn-large" %></div>
 		<% end %>
+<% else %>
+	<h1>A raffle has not been created yet</h1>
+<% end %>
