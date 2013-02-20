@@ -1,22 +1,33 @@
 @import "bootstrap";
 
 body {
-  padding-top: 60px;
+	font-family: 'Exo', sans-serif;
+	background-image:url(image_path('debut_dark.png'));
 }
 @media (max-width: 979px) {
   body {
     padding-top: 0px;
   }
 }
-
+.container{
+	margin-top:-30px;
+}
 .content{
 	text-align:center;
 	margin:0px auto;
+	background:#F2F2F2;
+	border-top:1px solid black;
 	h3{
 		line-height:1.3em;
 	}
 }
-.muted{
-	padding-bottom:15px;
+.hero-unit:after{
+	background:url(image_path('greyfloral.png')) repeat scroll center center transparent;
+	border-bottom:1px solid black;
+	z-index:0;
+}
+.hero-unit{
+	border-radius:0px;
+	background:linear-gradient(45deg, #4B8A08 0%, #F1F8E0 100%) repeat scroll 0 0 transparent;
 }
 @import "bootstrap-responsive";
