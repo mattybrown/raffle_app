@@ -57,9 +57,11 @@ before_filter :authenticate, :except => :index
 				match = i[0].to_s
 				id = i[1].to_s		
 				if ticket == match && unique_id.to_s == id
+					if ticket == @last_raffle.winner
 					flash.now[:notice] = "Congratulations, you won!"
 					render "congrats"
 					break
+					end
 				else
 					flash.now[:notice] = "Thanks for entering, but sorry, that ticket wasn't a winner. Try again next time!"
 				end

@@ -48,6 +48,7 @@ before_filter :authenticate, :except => :index
   end
 
   def index
+	@all_raffles = Raffle.all
 	@last_raffle = Raffle.last
 	ticket = params[:ticket]
 	unique_id = params[:unique_identifier].to_i
