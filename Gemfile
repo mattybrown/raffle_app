@@ -9,6 +9,7 @@ gem 'pg'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'mail'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

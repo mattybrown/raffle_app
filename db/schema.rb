@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216234140) do
+ActiveRecord::Schema.define(:version => 20130221073100) do
 
   create_table "raffles", :force => true do |t|
     t.text     "tickets"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130216234140) do
     t.datetime "updated_at", :null => false
     t.string   "name"
     t.string   "number"
+    t.boolean  "claimed"
   end
 
 end

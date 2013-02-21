@@ -1,4 +1,4 @@
-
+<% if @last_raffle.claimed == false %>
 	<% if @last_raffle.winner == nil %>
 		<h3>The current raffle, <%= @last_raffle.name %>, hasn't been drawn yet. Please check back Monday morning after 9am.</h3>
 	<% else %>
@@ -10,15 +10,9 @@
 			<div><%= submit_tag "Check ticket", :class=>"btn btn-primary btn-large" %></div>
 		<% end %>
 	<% end %>
+<% else %>
 
-<h4>Previous Raffles</h4>
-<ul class="unstyled">
-	<% @all_raffles.each do |r| %>
-		<% if r.winner != @last_raffle.winner %>
-			<li><strong>Raffle name:</strong> <%= r.name %></li><li><strong>Winning Ticket:</strong> <%= r.winner %></li>
-		<% else %>
-			<li><strong>Raffle name:</strong> <%= r.name %></li>
-			<li><strong>Winning Ticket:</strong> It could be you!</li>
-		<% end %>
-	<% end %>
-</ul>
+	<h3>This raffle has been claimed! Congratulations to the lucky person with the ticket, <%= @last_raffle.winner %></h3>
+
+<% end %>
+

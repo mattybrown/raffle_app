@@ -1,5 +1,7 @@
 class RafflesController < ApplicationController
 before_filter :authenticate, :except => [:index, :winner]
+require 'mail'
+
   def new
 	@raffle = Raffle.new
   end
@@ -20,7 +22,7 @@ before_filter :authenticate, :except => [:index, :winner]
 		ticket_and_code.push tickets
 	end
 
-	@raffle = Raffle.new(:tickets => ticket_and_code, :name => name, :number => ticket_num)
+	@raffle = Raffle.new(:tickets => ticket_and_code, :name => name, :number => ticket_num, :claimed => false)
 	  if @raffle.save
 	    flash[:notice] = "Raffle created"
 	  else	
@@ -74,20 +76,40 @@ before_filter :authenticate, :except => [:index, :winner]
   end
 
   def winner
+Mail.defaults do
+  delivery_method :smtp, {
+    :port      => 587,
+    :address   => "smtp.mandrillapp.com",
+    :user_name => APP_CONFIG[:mandrill_username],
+    :password  => APP_CONFIG[:mandrill_password]
+  }
+end
 	@last_raffle = Raffle.last
 	if params[:commit]
 		name = params[:name]
 		email = params[:email]
 		if validate_email(email)
-			RaffleWinner.email_winner(email).deliver
-			email = RaffleWinner.email_winner(email).deliver
-			if !ActionMailer::Base.deliveries.empty?
+			mail = Mail.deliver do
+				to	email
+				from	'Raffle prize delivery <raffles@mattybrown.net>'
+				subject	'Your prize voucher is attached'
+
+				html_part do
+					content_type 'text/html; charset=UTF-8'
+					body '<em>Congratulations, mother fucker.'
+				end
+			end
+			if mail.action == 'failed'
 				render "email_fail"
+
 			else
 				render "email_success"
+				@last_raffle.claimed = true
+				@last_raffle.save
 			end
 		else
 			flash.now[:notice] = "Please enter a valid email address"
+			render "congrats"
 		end
 	end
   end
