@@ -1,5 +1,5 @@
 class RafflesController < ApplicationController
-before_filter :authenticate, :except => :index
+before_filter :authenticate, :except => [:index, :winner]
   def new
 	@raffle = Raffle.new
   end
@@ -75,6 +75,43 @@ before_filter :authenticate, :except => :index
 
   def winner
 	@last_raffle = Raffle.last
+	if params[:commit]
+		name = params[:name]
+		email = params[:email]
+		if validate_email(email)
+			RaffleWinner.email_winner(email).deliver
+			email = RaffleWinner.email_winner(email).deliver
+			if !ActionMailer::Base.deliveries.empty?
+				render "email_fail"
+			else
+				render "email_success"
+			end
+		else
+			flash.now[:notice] = "Please enter a valid email address"
+			render "congrats"
+		end
+	end
   end
+protected
 
+def validate_email(email)
+  
+  email_regex = %r{
+    ^ # Start of string
+    [0-9a-z] # First character
+    [0-9a-z.+]+ # Middle characters
+    [0-9a-z] # Last character
+    @ # Separating @ character
+    [0-9a-z] # Domain name begin
+    [0-9a-z.-]+ # Domain name middle
+    [0-9a-z] # Domain name end
+    $ # End of string
+  }xi # Case insensitive
+  
+  if email =~ email_regex
+    return true
+  else
+    return false
+  end
+end
 end

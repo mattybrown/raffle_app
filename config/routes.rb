@@ -8,6 +8,7 @@ RaffleApp::Application.routes.draw do
   match '/create',	to: 'raffles#create'
   match 'raffles',	to: 'raffles#index'
   match '/claim',	to: 'raffles#winner'
+  match '/winner',	to: 'raffles#winner'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

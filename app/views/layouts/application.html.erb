@@ -14,7 +14,8 @@
   </head>
   <body>
 	<header id="overview" class="hero-unit">
-		<h1>Do you have the winning ticket?</h1>
+		<h3>Matt Brown Raffle fundraiser</h3>
+		<p>Help me beat the Ozzies at Roller Derby!</p>
 	</header>
 	    <div id="main" role="main">
 	      <div class="container">
@@ -25,13 +26,13 @@
 		      <%= yield %>
 		    </div>
 		  </div>
-		  <footer class="navbar navbar-fixed-bottom">
-			<div class="container">
-				<p class="muted">This app was built by Matt Brown. Need a website? <%= mail_to "brownprobable@gmail.com", "Email me!" %>
-			</div>
-		  </footer>
 		</div>
 	      </div> <!--! end of .container -->
 	    </div> <!--! end of #main -->
+	  <footer class="navbar navbar-fixed-bottom">
+		<div class="container">
+			<p class="foot">This app was built by Matt Brown. Need a website? <%= mail_to "brownprobable@gmail.com", "Email me!" %>
+		</div>
+	  </footer>
   </body>
 </html>

@@ -1,8 +1,7 @@
 @import "bootstrap";
 
 body {
-	font-family: 'Exo', sans-serif;
-	background-image:url(image_path('debut_dark.png'));
+	background:#FFC973;
 }
 @media (max-width: 979px) {
   body {
@@ -15,18 +14,30 @@ body {
 .content{
 	text-align:center;
 	margin:0px auto;
-	background:#F2F2F2;
 	h3{
 		line-height:1.3em;
 	}
 }
-.hero-unit:after{
-	background:url(image_path('greyfloral.png')) repeat scroll center center transparent;
-	border-bottom:1px solid black;
-	z-index:0;
-}
 .hero-unit{
+	background:#FF9C00;
 	border-radius:0px;
-	background:linear-gradient(45deg, #4B8A08 0%, #F1F8E0 100%) repeat scroll 0 0 transparent;
+	text-align: center;
+	position:static;
+	width:auto;
+	margin:0 -20px 30px -20px;
+	padding:20px;
 }
+
+.navbar-fixed-bottom .container{
+	background:#FF9C00;
+	text-align:center;
+	display:block;
+	height:auto;
+	padding:8px 20px 0 20px !important;
+	width:auto !important;
+	margin-top:40px;
+}
+
 @import "bootstrap-responsive";
+
+
