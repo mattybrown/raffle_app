@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body {
-	background:#FFC973;
+	background:#ffcc33;
 }
 @media (max-width: 979px) {
   body {
@@ -19,7 +19,7 @@ body {
 	}
 }
 .hero-unit{
-	background:#FF9C00;
+	background:#fff;
 	border-radius:0px;
 	text-align: center;
 	position:static;
@@ -30,13 +30,15 @@ body {
 }
 
 .navbar-fixed-bottom .container{
-	background:#FF9C00;
+	background:#003399;
 	text-align:center;
 	height:auto;
 	padding:8px 20px 0 20px !important;
 	width:auto !important;
 	margin-top:30px;
 	position:static;
+	color:#fff;
+
 }
 
 @import "bootstrap-responsive";
