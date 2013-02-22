@@ -1,10 +1,14 @@
 <% @page_title = "mattybrown.net | View raffle" %>
-<div class="create_form">
-	<h1>Raffle winner: <%= @last_raffle.winner %></h1>
+
 	
-	<ul class="ticket_list">
 	<% @last_raffle.tickets.each do |i| %>
-		<li><%= i[0] %></li>
+		<div id="container">
+			<div class="raffle_ticket">
+				<span class="ticket_side">TICKET</span>
+				<div class="ticket_name"><%= i[0] %></div>
+				<div class="heavy"><span style="font-weight:700;">#UID</span><span class="ticket_uid"><%= i[1] %></span></div>
+				<div class="ticket_blurb">check your ticket at www.mattybrown.net</div>
+				<div id="qr_code"><%= image_tag "qr_code.jpg" %></div>
+			</div>
+		</div>
 	<% end %>
-	</ul>
-</div>
