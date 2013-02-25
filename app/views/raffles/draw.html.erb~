@@ -1,5 +1,0 @@
-	<h1>Draw the last raffle</h1>
-		<%= form_tag(:controller => "raffles", :action => "draw") do %>
-			<%= submit_tag :draw, :class => "btn btn-primary btn-large" %>
-		<% end %>
-	<div>The winner is, <%= @winner %></div>
