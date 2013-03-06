@@ -3,11 +3,13 @@
     <li class="name">
 	<h1><%= link_to "Home", root_path, :class => 'brand' %></h1>
     </li>
+    <h1><li class="toggle-topbar menu-icon"><a href="#"></span>Menu</span></a></li></h1>
 </ul>
 <section class="top-bar-section">
 	<ul class="left">
-		<li class="name">
-		<%= link_to('Facebook', "http://facebook.com") %>
+		<li class="divider hide-for-small"></li>
+		<li class="name fb_button">
+		<%= link_to image_tag('Facebook.png'), 'http://www.facebook.com' %>
 		</li>
 	</ul>
 </section>
