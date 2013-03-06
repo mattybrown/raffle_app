@@ -1,0 +1,14 @@
+@import "foundation";
+
+html, body{
+	font-family: 'Trocchi', serif;
+}
+.logo img{
+	margin:0 auto;
+}
+p{
+	text-align:center;
+}
+.text-columns{
+	margin-top:20px;
+}	

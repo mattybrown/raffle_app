@@ -55,22 +55,25 @@ require 'mail'
 	ticket = params[:ticket]
 	unique_id = params[:unique_identifier].to_i
 	if params[:commit]
-		if unique_id.is_a? Integer
+		if unique_id != 0
 			@last_raffle.tickets.each do |i|
 				match = i[0].to_s
 				id = i[1].to_s		
 				if ticket == match && unique_id.to_s == id
 					if ticket == @last_raffle.winner
-					flash.now[:notice] = "Congratulations, you won!"
-					render "congrats"
+						flash.now[:notice] = "Congratulations, you won!"
+						render "congrats"
+					break
+					else
+						flash.now[:notice] = "Thanks for entering, but sorry, that ticket wasn't a winner. Try again next time!"
 					break
 					end
-				else
-					flash.now[:notice] = "Thanks for entering, but sorry, that ticket wasn't a winner. Try again next time!"
+				elsif ticket != match || unique_id.to_s != id
+					flash.now[:notice] = "Your ticket doesn't match your unique id!"
 				end
 			end
 		else
-			flash.now[:notice] = "Your unique id is invalid " + unique_id 
+			flash.now[:notice] = "Your unique id is invalid " + unique_id.to_s
 		end
 	end
   end

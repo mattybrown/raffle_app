@@ -22,13 +22,13 @@
 		<nav class="top-bar"><%= render 'layouts/navigation' %></div>
 		   <div class="row">
 			<div class="logo"><%= image_tag('logo.jpg') %></div>
-		   	<div class="small-12 centered columns large-5">
+		   	<div class="small-6 centered columns large-5">
 				<div class="text-columns">
 				<p>Thanks for supporting me, Matt Brown, and the NZ men's roller derby team.</p>
 				<p>To find out more about roller derby in Blenheim, check out the Boomtown Brawlettes facebook page!</p>
 			</div>
 			</div>
-		    <div class="small-12 centered columns large-6">
+		    <div class="small-6 centered columns large-6">
 			<div class="hero-unit">
 				<h2>This weeks raffle is for...</h2>
 			</div>

@@ -6,7 +6,6 @@
 </ul>
 <section class="top-bar-section">
 	<ul class="left">
-		<li class="divider"></li>
 		<li class="name">
 		<%= link_to('Facebook', "http://facebook.com") %>
 		</li>
