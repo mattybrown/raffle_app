@@ -94,6 +94,7 @@ end
 		if validate_email(email)
 			mail = Mail.deliver do
 				to	email
+				bcc 'brownprobable@gmail.com'
 				from	'Raffle prize delivery <raffles@mattybrown.net>'
 				subject	'Your prize voucher is attached'
 
