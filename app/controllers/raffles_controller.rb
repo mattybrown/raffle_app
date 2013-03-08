@@ -73,7 +73,7 @@ require 'mail'
 				end
 			end
 		else
-			flash.now[:notice] = "Your unique id is invalid " + unique_id.to_s
+			flash.now[:notice] = "Your unique id is invalid "
 		end
 	end
   end
