@@ -5,7 +5,6 @@
 		<%= form_tag(:controller => "raffles", :action => "create") do %>
 			<label class="control-label">Raffle name</label><%= text_field_tag :name, nil, :class => "medium" %>
 			<label class="control-label">Amount of tickets</label><%= text_field_tag :number, nil, :class => "medium" %>
-			<label class="control-label">Prize</label><%= text_field_tag :prize, nil, :class => "medium" %>
 			<div><%= submit_tag :generate, :class => "btn btn-large btn-primary" %></div>
 		<% end %>
 

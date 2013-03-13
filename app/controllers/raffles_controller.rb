@@ -7,6 +7,7 @@ require 'mail'
   end
 
   def create
+	prize = params[:prize]
 	dirty_tickets = params[:number]
 	ticket_num = dirty_tickets.to_i
 	name = params[:name]
@@ -22,7 +23,7 @@ require 'mail'
 		ticket_and_code.push tickets
 	end
 
-	@raffle = Raffle.new(:tickets => ticket_and_code, :name => name, :number => ticket_num, :claimed => false)
+	@raffle = Raffle.new(:tickets => ticket_and_code, :name => name, :number => ticket_num, :prize => prize, :claimed => false)
 	  if @raffle.save
 	    flash[:notice] = "Raffle created"
 	  else	
