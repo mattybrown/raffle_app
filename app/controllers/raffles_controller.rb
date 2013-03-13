@@ -69,7 +69,7 @@ require 'mail'
 						break
 					end
 				elsif ticket != match || unique_id.to_s != id
-					flash.now[:notice] = "Your ticket doesn't match your unique id!"
+					flash.now[:error] = "Your ticket doesn't match your unique id!"
 				end
 			end
 		else
@@ -93,14 +93,13 @@ end
 		email = params[:email]
 		if validate_email(email)
 			mail = Mail.deliver do
-				to	email
-				bcc 'brownprobable@gmail.com'
-				from	'Raffle prize delivery <raffles@mattybrown.net>'
-				subject	'Your prize voucher is attached'
+				to	'brownprobable@gmail.com'
+				from	'Raffle Notification <raffles@mattybrown.net>'
+				subject	'Raffle winner has claimed their prize'
 
 				html_part do
 					content_type 'text/html; charset=UTF-8'
-					body '<em>Congratulations, mother fucker.'
+					body 'The winner is, ' + name + ', and their email is, ' + email
 				end
 			end
 			if mail.action == 'failed'

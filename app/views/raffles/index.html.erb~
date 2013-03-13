@@ -5,8 +5,8 @@
 		<h3>The current raffle, <%= @last_raffle.name %>, has been drawn. Enter your ticket details below!</h3>
 	
 		<%= form_tag(:controller => "raffles", :action => "index") do %>
-			<label class="control-label">Ticket Code<br /><%= text_field_tag :ticket, nil, :class => 'medium' %></label>
-			<label class="control-label">#UID (unique 7 digit number)<br /><%= text_field_tag :unique_identifier, nil, :class => 'medium' %></label>
+			<label class="control-label">Ticket<br /><%= text_field_tag :ticket, nil, :class => 'medium' %></label>
+			<label class="control-label">Unique ID<br /><%= text_field_tag :unique_identifier, nil, :class => 'medium' %></label>
 			<div><%= submit_tag "Check ticket", :class=>"btn btn-primary btn-large" %></div>
 		<% end %>
 	<% end %>

@@ -2,7 +2,7 @@
 		<%= form_tag(:controller => "raffles", :action => "winner") do %>
 		<h3>Your ticket, <%= @last_raffle.winner %> is the winner!</h3>
 		<p>To claim your prize, please enter your name and email address. Your email prize voucher will be sent as soon as possible! If you have any questions, email me at <%= mail_to "brownprobable@gmail.com", "brownprobable@gmail.com" %></p>
-			<label class="control-label">Full Name</label> <%= text_field_tag :name, nil, :class => 'medium' %>
+			<label class="control-label">Name</label> <%= text_field_tag :name, nil, :class => 'medium' %>
 			<label class="control-label">Email</label> <%= text_field_tag :email, nil, :class => 'medium' %>
 			<div><%= submit_tag "Claim your prize", :class=>"btn btn-primary btn-large" %></div>
 		<% end %>

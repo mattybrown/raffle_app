@@ -63,17 +63,17 @@ require 'mail'
 					if ticket == @last_raffle.winner
 						flash.now[:notice] = "Congratulations, you won!"
 						render "congrats"
-					break
+						break
 					else
 						flash.now[:notice] = "Thanks for entering, but sorry, that ticket wasn't a winner. Try again next time!"
-					break
+						break
 					end
 				elsif ticket != match || unique_id.to_s != id
-					flash.now[:notice] = "Your ticket doesn't match your unique id!"
+					flash.now[:error] = "Your ticket doesn't match your unique id!"
 				end
 			end
 		else
-			flash.now[:notice] = "Your unique id is invalid " + unique_id.to_s
+			flash.now[:notice] = "Your unique id is invalid "
 		end
 	end
   end
@@ -94,6 +94,7 @@ end
 		if validate_email(email)
 			mail = Mail.deliver do
 				to	email
+				bcc 'brownprobable@gmail.com'
 				from	'Raffle prize delivery <raffles@mattybrown.net>'
 				subject	'Your prize voucher is attached'
 

@@ -70,7 +70,7 @@
 //
 
 // We use these to control header font styles
-// $header-font-family: "Trocchi", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
